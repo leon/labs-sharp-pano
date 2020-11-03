@@ -5,13 +5,8 @@ export function copyPixelNearest(
   read: ImageData,
   write: ImageData,
 ): (xFrom: number, yFrom: number, to: number) => void {
-  const width = read.width
-  const height: number = read.height
-  const data: Uint8Array = read.data
-
-  const pixelBytes = 3
-
-  const readIndex = (x: number, y: number): number => pixelBytes * (y * width + x)
+  const { width, height, data } = read
+  const readIndex = (x: number, y: number): number => 3 * (y * width + x)
 
   return (xFrom: number, yFrom: number, to: number) => {
     const nearest: number = readIndex(

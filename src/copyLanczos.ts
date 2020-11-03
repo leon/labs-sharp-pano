@@ -2,7 +2,7 @@ import { ImageData } from './domain'
 import { kernelResample } from './kernelResample'
 
 export function copyPixelLanczos(read: ImageData, write: ImageData) {
-  const filterSize = 3
+  const filterSize = 5
   const kernel = (x: number) => {
     if (x === 0) {
       return 1

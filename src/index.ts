@@ -11,19 +11,11 @@ const convertFace = async (originalImage: ImageData, imageName: string, faceName
       height: face.height,
       channels: 3, // no transparency in panos
     },
-  })
-    // .jpeg({
-    //   // progressive: true,
-    //   quality: 85,
-    //   // optimiseScans: true,
-    //   // trellisQuantisation: true,
-    //   // quantisationTable: 1,
-    // })
-    .toFile(`./out/${imageName}@${faceName}.jpg`)
+  }).toFile(`./out/${imageName}@${faceName}.jpg`)
 }
 
 const main = async () => {
-  const imageName = 'brf-eken@pano'
+  const imageName = 'test3072'
 
   performance.mark('start')
   const { data, info } = await sharp(`./assets/${imageName}.jpg`)
@@ -34,12 +26,12 @@ const main = async () => {
   const originalImage = new ImageData(info.width, info.height, data)
   performance.mark('open')
 
-  // convertFace(originalImage, imageName, 'pz')
+  convertFace(originalImage, imageName, 'pz')
   convertFace(originalImage, imageName, 'nz')
-  // convertFace(originalImage, imageName, 'px')
-  // convertFace(originalImage, imageName, 'nx')
-  // convertFace(originalImage, imageName, 'py')
-  // convertFace(originalImage, imageName, 'ny')
+  convertFace(originalImage, imageName, 'px')
+  convertFace(originalImage, imageName, 'nx')
+  convertFace(originalImage, imageName, 'py')
+  convertFace(originalImage, imageName, 'ny')
 
   performance.mark('convert')
 
