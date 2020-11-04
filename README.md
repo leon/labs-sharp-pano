@@ -2,6 +2,8 @@
 
 using sharp to convert from an equirectangular image to 6 cube faces compatible with three.js
 
+![Demo](/assets/test2048.jpg)
+
 # Run
 
 Will take the jpg specified in `index.ts main() imageName` and opening the image as a raw byte buffer then
