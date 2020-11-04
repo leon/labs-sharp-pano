@@ -21,10 +21,11 @@ export const renderFace = (
   // const writeData = new ImageData(faceWidth, faceHeight);
   const writeData: ImageData = new ImageData(faceWidth, faceHeight)
 
-  // how should we copy the pixels
+  // how should we copy the pixels,
+  // we now use the quickest version which is nearest
   const copyPixel = copyPixelNearest(readData, writeData)
-  // const copyPixel = copyPixelLanczos(readData, writeData)
   // const copyPixel = copyPixelBicubic(readData, writeData)
+  // const copyPixel = copyPixelLanczos(readData, writeData)
 
   // create working cube Vector3
   const cube: Vector3 = { x: 0, y: 0, z: 0 }
